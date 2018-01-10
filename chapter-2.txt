@@ -1,0 +1,135 @@
+Q 2.1-1
+	Using Figure 2.2 as a model, illustrate the operation of INSERTION-SORT on the
+	array A  = (41, 59, 26, 41, 58).
+A
+	Give A = (41,59,26,41,58)
+	First Card 41 will go as it is
+	A = (41,59,26,41,58)
+	59 is bigger than 41 so these will not swap
+	A = (41,59,26,41,58)
+	26 is smaller than 59 and 41 so it move all 
+	A = (26,41,59,41,58)
+	41 is smaller than 59 so it will move 59
+	A = (26,41,41,59,58)
+	58 is smaller than 59 so it will move 59
+	A = (26,41,41,58,59)
+	
+	Hence the sorted array.
+	
+Q 2.1-2
+	Rewrite the INSERTION-SORT procedure to sort into nonincreasing instead of nondecreasing
+	order.
+A
+	for(int i=1;i<n;i++) {
+		int j = i-1, key = arr[i];
+		while(j >= 0 && key > arr[j]) {
+			arr[j+1] = arr[j];
+			j--;
+		}
+		arr[j+1] = key;
+	}
+	
+Q 2.1-2
+	Consider the searching problem:
+	Input: A sequence of n numbers A = (a1,a2,a3...) and a value v.
+	Output: An index i such that v =  A[i] or the special value NIL if v does not
+	appear in A.
+	Write pseudocode for linear search, which scans through the sequence, looking
+	for v. Using a loop invariant, prove that your algorithm is correct. Make sure that
+	your loop invariant fulfills the three necessary properties.
+A
+	linearSearch(int A[],int n,int v) {
+		for(int i=0;i<n;i++) {
+			if(A[i] == v)
+				return i;
+		}
+		return NIL;
+	}
+	CORRECTNESS:
+		Loop Invariant:
+		At the start of each loop the subarray A[1:i-1] contains all element
+		which are not equal to v,
+		Initialization:
+		Prior to first iteration the array is empty so our invariant holds
+		as it does not contains v.
+		Maintenance:
+		Algorithm only moves to next step when it didnt find v in previous step 
+		in i-1,i-2,i-3,..1. So array from 1 to i-1 does not contains v and our invariant
+		holds.
+		Termination:
+		We terminate from loop whenever we fine the element or we reach end of array 
+		In Both cases array A[1:i-1] does not contains v. Also in second case array is 
+		A[1:n] which is complete array.
+		
+Q 2.1-3
+	Consider the problem of adding two n-bit binary integers, stored in two n-element
+	arrays A and B. The sum of the two integers should be stored in binary form in
+	an (n +1) element array C. State the problem formally and write pseudocode for
+	adding the two integers.
+A 
+	Start adding two array from last and keep a variable for carry. At each step 
+	Add two digits and carry to find current digit. If at last there is carry then
+	add it to starting of Array C.
+	addTwoBinary(A,B,C,n) {
+		int carry = 0;
+		for(int i=n;i>=1;i--) {
+			C[i+1] = (A[i]+B[i]+carry)%2;
+			carry = (A[i]+B[i]+carry)/2;
+		}
+		C[0] = carry;	
+	}
+
+Q 2.2-1
+	Express the function n3/1000 - 100n2 - 100n + 3 in terms of (Theta) notation.
+A 
+	Ignoring lowest order terms and constans we get 
+		Theta(n3)
+
+Q 2.2-2
+	Consider sorting n numbers stored in array A by first finding the smallest element
+	of A and exchanging it with the element in A[1]. Then find the second smallest
+	element of A, and exchange it with A[2]. Continue in this manner for the first n-1
+	elements of A. Write pseudocode for this algorithm, which is known as selection
+	sort. What loop invariant does this algorithm maintain? Why does it need to run
+	for only the first n-1 elements, rather than for all n elements? Give the best-case
+	and worst-case running times of selection sort in (Theta) notation.
+A
+	selectionSort(A,n) {
+		for(int i=1;i<=n;i++) {
+			for(int j=i+1;j<=n;j++) {
+				if(A[j] < A[i]) {
+					swap(A[j],A[i])
+				}
+			}
+		}
+	}
+	Loop Invariant:
+	At the start of each loop the array A[1:i-1] contains i-1 minimum elements of array Add 
+	in sorted order.
+	After n-1 iterations the array A[1:n-1] contains n-1 minimum element so the nth element 
+	will be the largest of all which is in position.
+	As Internal rloopno matter what the input is so in both best and worst 
+	case time complexity is 
+		Theta(n2)
+		
+Q 2.2-3
+	Consider linear search again (see Exercise 2.1-3). How many elements of the input
+	sequence need to be checked on the average, assuming that the element being
+	searched for is equally likely to be any element in the array? How about in the
+	worst case? What are the average-case and worst-case running times of linear
+	search in ‚-notation? Justify your answer
+A
+	Let  probability of each element equal to v is 
+		1/n
+	Now for whole array A probability of checking each element is 
+		1/n + 2/n + .... n/n = (n+1)/2
+	So on average half elements need to be checked.
+	Worst case complexity will be Theta(n)
+	Average case complexity will be Theta(n) if we ignore constants terms 
+	So both are equal asymptotically.
+	
+Q 2.2-4
+	How can we modify almost any algorithm to have a good best-case running time?
+A 
+	Modify the input so that it will equal to expected output So alorithm will have 
+	to run minimum times.
