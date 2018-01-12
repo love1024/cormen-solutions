@@ -252,25 +252,3 @@ A
 	Even if with binary search we can find the position where to find the element 
 	but still we need to move All the elements to the right Which will take on 
 	average Theta(n) time. So overall average time complexity will be same Theta(n^2).
-	
-Q 2.3-7
-	Describe a O(nlgn) time algorithm that, given a set S of n integers and another
-	integer x, determines whether or not there exist two elements in S whose sum is
-	exactly x.
-A 
-	sumIsX(A,n,x) {
-		Sort(A);	
-		int i=0,j = n-1;
-		while(i < j) {
-			if(A[i] + A[j] == x)
-				return true;
-			else if(A[i] + A[j] < x)
-				i++;
-			else 
-				j--;
-		}
-		return false;
-	}
-	Here sorting step using merge sort will take O(nlgn) time & while loop 
-	will in worst case will make n-1 comparisons s& take O(n) time so overall
-		O(nlgn) + O(n) = O(nlgn)

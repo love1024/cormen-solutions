@@ -1,0 +1,57 @@
+Q 2-1
+	Insertion sort on small arrays in merge sort
+	Although merge sort runs in O(nlgn) worst-case time and insertion sort runs
+	in O(n^2) worst-case time, the constant factors in insertion sort can make it faster
+	in practice for small problem sizes on many machines. Thus, it makes sense to
+	coarsen the leaves of the recursion by using insertion sort within merge sort when
+	subproblems become sufficiently small. Consider a modification to merge sort in
+	which n=k sublists of length k are sorted using insertion sort and then merged
+	using the standard merging mechanism, where k is a value to be determined.
+
+	a.	
+		Show that insertion sort can sort the n=k sublists, each of length k, in ‚.nk/
+		worst-case time.
+	A	
+		Sublist each of length k will take in worst case
+			O(k^2) 
+		And there are n/k sublists so time complexity will be 
+			O(n/k * k^2) = O(nk). 
+			
+	b.	
+		Show how to merge the sublists in O(nlg(n/k)) worst-case time.
+	A	
+		We can use the simple merge sort procedure on the coarsed array 
+		which will take time as given below:
+		If there is no coarsen then the recursion depth will go to full 
+		which is to single element so depth will be
+			lgn
+		But now after coarsen the depth has decreased by 
+			lgk
+		as k elements are coarsed So now the depth available is 
+			lgn - lgk = lg(n/k)
+		And at each depth the total time will still be O(ck) so the worst-case
+		time complexity in coarsen is 
+			O(nlg(n/k))
+	
+	c.
+		Given that the modified algorithm runs in O(nk +  nlg(n/k)) worst-case time,
+		what is the largest value of k as a function of n for which the modified algorithm
+		has the same running time as standard merge sort, in terms of Theta notation?
+	A 	
+		The modified algorithm should run asymptotically same as orginal when 
+			O(nk + nlg(n/k)) = O(nlgn)
+		This is possible for k = lgn as when we put 
+			O(nlgn + nlg(n/lgn)) 
+			O(nlgn + nlgn - nlglgn)
+			O(2nlgn - nlglgn) 
+		which is asymptotically equal to merge sort 
+		Value cannot be larget than lgn as if it will then the left hand side 
+		will become greater than standard merge sort which is not required.
+	
+	d. 
+		How should we choose k in practice?
+	A 
+		In practise K should be large constant smaller than lgn 
+		on which insertion sort is faster than merge sort. So different values of k 
+		should be tested.
+		
