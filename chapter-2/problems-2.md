@@ -91,11 +91,11 @@ presented in this chapter.
 _Loop Invariant_:.  
 At the start of each iteration of loop (1-4), Array A[1..i-1] contains i-1 smallest elements of array A in sorted order.  
 _Initialization_:  
-At starting A[1..i-1] will be empty so loop invariant holds true by default.
+At starting A[1..i-1] will be empty so loop invariant holds true by default.  
 _Maintenance_:  
 Ater each iteration of outer loop the value at ith position contains smallest element from array A[i..A.length]. Also this was true i-1,i-2..1 so this will be the smallest ith element in the array in sorted order. Hence loop invariant holds after each iteration.  
 _Termination_:  
-At the end i is equal to A.length and  array A[1..A.lengths] contains A.length smallest element in sorted order or array A[1..A.length] is sorted.  
+At the end i is equal to A.length and  array A[1..A.lengths] contains A.length smallest element in sorted order or array A[1..A.length] is sorted.   
 	
 #### `Part d`
 What is the worst-case running time of bubblesort? How does it compare to the
