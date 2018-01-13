@@ -65,19 +65,15 @@ The next two parts will prove inequality (2.3).
 **b**.
 State precisely a loop invariant for the for loop in lines (2-4), and prove that this loop invariant holds. Your proof should use the structure of the loop invariant proof presented in this chapter.  
 **Ans**.
-
 _Loop Invariant_:  
 At the start of each iteration  of loop (2-4) , A[j] is the smallest element in 
 array A[j..A.length-1]  
-
 _Initialization_:  
 At starting j is at position A.length So A[j] is smallest element as it is only
 one.  
-
 _Maintenance_:  
 After each iteration j decreases by 1 and before decreasing j line 3 check whether
 that the value at current j is less than value j-1 (The one loop is going to), if yes then we swap j with j-1. So j will always be minimum after each iteration as we swap elements to keep minimum value at j.  
-
 _Termination_:  
 On termination j will become i and A[i] is smallest element in A[i..n] so invariant holds.  
 	
@@ -88,13 +84,10 @@ presented in this chapter.
 **Ans**.
 _Loop Invariant_:.  
 At the start of each iteration of loop (1-4), Array A[1..i-1] contains i-1 smallest elements of array A in sorted order.  
-
 _Initialization_:  
 At starting A[1..i-1] will be empty so loop invariant holds true by default.
-
 _Maintenance_:  
 Ater each iteration of outer loop the value at ith position contains smallest element from array A[i..A.length]. Also this was true i-1,i-2..1 so this will be the smallest ith element in the array in sorted order. Hence loop invariant holds after each iteration.  
-
 _Termination_:  
 At the end i is equal to A.length and  array A[1..A.lengths] contains A.length smallest element in sorted order or array A[1..A.length] is sorted.  
 	
