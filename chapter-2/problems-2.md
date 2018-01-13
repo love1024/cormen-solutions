@@ -141,6 +141,6 @@ Q.2-3
 	Correctness of Horner's rule
 	The following code fragment implements Horner's rule for evaluating a polynomial
 	
-	![equation](http://latex.codecogs.com/gif.latex?%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek)
+![equation](http://latex.codecogs.com/gif.latex?%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek)
 	
 		
