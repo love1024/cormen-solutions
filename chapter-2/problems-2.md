@@ -171,5 +171,56 @@ characterized by the coefficients a0,a1,...an.
 #### Answer
 We just proved that the termination of algorithm will generate Horner rule which is the required result.
 
+## Problem 2-4
+***
+### Inversion
+Let A[1..n] be an array of n distinct numbers. If i < j and A[i] > A[j], then the
+pair (i,j) is called an inversion of A.
+#### `Part a`
+List the five inversions of the array {2, 3, 8, 6, 1}.
+#### Answer
+(2,1), (3,1), (8,6), (6,1) & (8,1)
+#### `Part b`
+What array with elements from the set {1,2,...n} has the most inversions?
+How many does it have?
+#### Answer
+The array A[n,n-1...1] has most inversion and these are 
 
-
+    n(n-1)/2
+#### `Part c`
+What is the relationship between the running time of insertion sort and the
+number of inversions in the input array? Justify your answer.
+#### Answer
+The number of inversion are proportional to the inner while loop of insertion sort.Inner while loop only run whenever there is j < i such that A[j] > A[i] and it forms a inversion also. So running time of insertion sort is proportional to the inversions of the array. More the inversions more will be the running time.
+#### `Part d`
+Give an algorithm that determines the number of inversions in any permutation
+on n elements in Θ(nlgn) worst-case time. (Hint: Modify merge sort.)
+#### Answer
+    inv = 0;
+    merge(A,s,m,e) {
+        i=s,j=m+1,k=0;
+        B[e-s+1];
+        while(i <= m && j<= e) {
+            if(A[i] <= A[j]) {
+                B[k] = A[i];
+                i++;
+            } else {
+                B[k] = A[j];
+                j++;
+                inv += (m-s+1); //Here inversion count
+            }
+            k++;
+        }
+        while( i<= m) {
+            B[k] = A[i];
+            i++,k++;
+        }
+        while( j<= e) {
+            B[k] = A[j];
+            j++,k++;
+        }
+        for(int i=0;i<=e-s;i++) {
+            A[i+s] = B[i]; 
+        }
+    }
+    
