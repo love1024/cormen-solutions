@@ -27,11 +27,13 @@ as a function of n for which the modified algorithm has the same running time as
 of Θ notation?  
 #### Answer 
 The modified algorithm should run asymptotically same as orginal when  
-&nbsp;&nbsp;	**O(nk + nlg(n/k)) = O(nlgn)**  
+
+    O(nk + nlg(n/k)) = O(nlgn)
 This is possible for k = lgn as when we put   
-&nbsp;&nbsp;	**O(nlgn + nlg(n/lgn))  
-&nbsp;&nbsp;	O(nlgn + nlgn - nlglgn)  
-&nbsp;&nbsp;	O(2nlgn - nlglgn)**  
+
+    O(nlgn + nlg(n/lgn))  
+    (nlgn + nlgn - nlglgn)  
+    O(2nlgn - nlglgn)
 which is asymptotically equal to merge sort Value cannot be larget than lgn as if it will then the left hand side  
 will become greater than standard merge sort which is not required.
 
@@ -115,6 +117,59 @@ so best and worst case both are
 ### Correctness of Horner's rule
 The following code fragment implements Horner's rule for evaluating a polynomial
 
-![equation](http://latex.codecogs.com/gif.latex?%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek)
+![equation](http://latex.codecogs.com/gif.latex?P%28x%29%20%3D%20%5Csum_%7Bk%3D0%7D%5Ena_kx%5Ek%20%5C%5C%20%5Chspace*%7B1.5cm%7D%20%3D%20a_0%20&plus;%20x%28a_1%20&plus;%20x%28a_2%20&plus;%20...%20&plus;%20x%28a_%7Bn-1%7D%20&plus;%20xa_n%29...%29%29)
 
-		
+given the coefficients of a0,a1,...an and a value for x:
+
+    1. y = 0
+    2. for i=n downto 0
+    3. y = ai + x.y
+
+#### `Part a`
+In terms of Θ notation, what is the running time of this code fragment for Horner’s rule?
+#### Answer 
+As there is only one for loop which is calculating the equation so the running time will be  
+&nbsp;&nbsp;Θ(n)
+
+#### `Part b`
+Write pseudocode to implement the naive polynomial-evaluation algorithm that computes each term of the polynomial from scratch. What is the running time of this algorithm? How does it compare to Horner’s rule?
+#### Answer
+    evaluate(a,x) {
+        y = 0;
+    	for(i=0;i<n;i++) {
+    	    t = 1
+    	    for(j=0;j<i;j++) {
+                t = t*x    
+    	    }
+    	    y += a[i]*t
+    	}
+	}
+Outer loop will traverse each term and inner loop will find the power of x of that term. So Both loops will time complexity equal to 
+    
+        O(n^2)
+Which is more than Horner's rule.
+
+#### `Part c`
+Consider the following loop invariant:
+At the start of each iteration of the for loop of lines 2–3,
+![equation](http://latex.codecogs.com/gif.latex?y%20%3D%20%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek)
+#### Answer
+_Initialization_:  
+At starting i=n, upper bound will become -1 so for no equation summation will become 0
+which is true as y=0 before first iteration.  
+_Maintenance_:  
+At the end of some ith loop ai will be added
+![equation](http://latex.codecogs.com/gif.latex?a_i%20&plus;%20%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek%3Da_i%20&plus;%20x%5Csum_%7Bk%3D1%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5E%7Bk-1%7D%20%3D%20%5Csum_%7Bk%3D0%7D%5E%7Bn-i%7Da_%7Bk&plus;i%7Dx%5Ek)
+So loop invariant holds true.  
+_Termination_:
+At end i = -1 so 
+![equation](http://latex.codecogs.com/gif.latex?%5Csum_%7Bk%3D0%7D%5E%7Bn%7Da_%7Bk%7Dx%5Ek)
+Which is the required Horner rule.
+#### `Pard d`
+Conclude by arguing that the given code fragment correctly evaluates a polynomial
+characterized by the coefficients a0,a1,...an.
+#### Answer
+We just proved that the termination of algorithm will generate Horner rule which is the required result.
+
+
+
