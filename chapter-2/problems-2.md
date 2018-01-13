@@ -151,19 +151,19 @@ Which is more than Horner's rule.
 
 #### `Part c`
 Consider the following loop invariant:
-At the start of each iteration of the for loop of lines 2–3,
-![equation](http://latex.codecogs.com/gif.latex?y%20%3D%20%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek)
+At the start of each iteration of the for loop of lines 2–3,  
+![equation](http://latex.codecogs.com/gif.latex?y%20%3D%20%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek)  
 #### Answer
 _Initialization_:  
 At starting i=n, upper bound will become -1 so for no equation summation will become 0
 which is true as y=0 before first iteration.  
 _Maintenance_:  
-At the end of some ith loop ai will be added
-![equation](http://latex.codecogs.com/gif.latex?a_i%20&plus;%20%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek%3Da_i%20&plus;%20x%5Csum_%7Bk%3D1%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5E%7Bk-1%7D%20%3D%20%5Csum_%7Bk%3D0%7D%5E%7Bn-i%7Da_%7Bk&plus;i%7Dx%5Ek)
+At the end of some ith loop ai will be added  
+![equation](http://latex.codecogs.com/gif.latex?a_i%20&plus;%20%5Csum_%7Bk%3D0%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5Ek%3Da_i%20&plus;%20x%5Csum_%7Bk%3D1%7D%5E%7Bn-%28i&plus;1%29%7Da_%7Bk&plus;i&plus;1%7Dx%5E%7Bk-1%7D%20%3D%20%5Csum_%7Bk%3D0%7D%5E%7Bn-i%7Da_%7Bk&plus;i%7Dx%5Ek)  
 So loop invariant holds true.  
-_Termination_:
-At end i = -1 so 
-![equation](http://latex.codecogs.com/gif.latex?%5Csum_%7Bk%3D0%7D%5E%7Bn%7Da_%7Bk%7Dx%5Ek)
+_Termination_:  
+At end i = -1 so  
+![equation](http://latex.codecogs.com/gif.latex?%5Csum_%7Bk%3D0%7D%5E%7Bn%7Da_%7Bk%7Dx%5Ek)  
 Which is the required Horner rule.
 #### `Pard d`
 Conclude by arguing that the given code fragment correctly evaluates a polynomial
