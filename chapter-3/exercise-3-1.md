@@ -103,6 +103,23 @@ As f(n) cannot be equal to these functions so disjunction of these function is e
 
 ### `Exercise 3.1-8`
 ***
+We can extend our notation to the case of two parameters n and m that can go to
+infinity independently at different rates. For a given function g(n,m) we denote
+by O(g(n,m)) the set of functions  
+
+    O(g(n,m)) = {f(n,m): there exist positive constants c,n',m' 
+                 such that  0<= f(n,m) <= cg(n,m)
+                 for all n>n' or m>=m'}
+Give corresponding definitions for Ω(g(n,m)) and Θ(g(n,m)).
+### Answer.
+    
+    Ω(g(n,m)) = {f(n,m): there exist positive constants c,n',m'
+                 such that 0 <= cg(n,m) <= f(n,m)
+                 for all n>= n' and m>= m'}
+    
+    Θ(g(n,m)) = {f(n,m): there exist positive constants c1,c2,n',m'
+                 such that 0 <= c1g(n,m) <= f(n,m) <= c2g(n,m)
+                 for all n>= n' and m>= m'}
 
 
 
