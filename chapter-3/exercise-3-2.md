@@ -122,7 +122,45 @@ Putting these value we can see these values satisy equation.
 Prove by induction that the i th Fibonacci number satisfies the equality  
 ![equation](http://latex.codecogs.com/gif.latex?F_i%20%3D%20%5Cdfrac%7B%5Cphi%5Ei%20-%20%5Cphi%27%5Ei%7D%7B%5Csqrt5%7D)  
 where ɸ is the golden ratio and ɸ' is its conjugate.
+### Answer.  
+**Base case, suppose its true for i=0 & 1**  
+![equation](http://latex.codecogs.com/gif.latex?F_0%20%3D%20%5Cdfrac%7B%5Cphi%5E0%20-%20%5Cphi%27%5E0%7D%7B%5Csqrt5%7D%20%3D%200%5C%5C%20%5Chspace*%7B0.6cm%7DF_1%20%3D%20%5Cdfrac%7B%5Cphi%5E1%20-%20%5Cphi%27%5E1%7D%7B%5Csqrt5%7D%20%3D%20%5Cdfrac%7B%5Cdfrac%7B1&plus;%5Csqrt5%7D%7B2%7D%20-%20%5Cdfrac%7B1-%5Csqrt5%7D%7B2%7D%20%7D%7B%5Csqrt5%7D%20%3D%201)  
+Hence it is true for base cases.  
+**Now using strong induction suppose its true for Fk, F(k-1),...F0**  
+![equation](http://latex.codecogs.com/gif.latex?F_k%20&plus;%20F_%7Bk-1%7D%20%3D%20%5Cdfrac%7B%5Cphi%5Ek%20-%20%5Cphi%27%5Ek%7D%7B%5Csqrt5%7D%20&plus;%20%5Cdfrac%7B%5Cphi%5E%7Bk-1%7D%20-%20%5Cphi%27%5E%7Bk-1%7D%7D%7B%5Csqrt5%7D%20%3D%20%5Cdfrac%7B%5Cphi%5Ek%20-%20%5Cphi%27%5Ek%20&plus;%20%5Cphi%5Ek%5Cphi%5E-1%20-%20%5Cphi%27%5Ek%5Cphi%27%5E-1%7D%7B%5Csqrt5%7D%20%3D%20%5Cdfrac%7B%5Cphi%5Ek%281%20&plus;%20%5Cphi%5E-1%29%20-%20%5Cphi%27%5Ek%281%20&plus;%20%5Cphi%27%5E-1%29%20%7D%7B%5Csqrt5%7D%20%3D%20%5Cdfrac%7B%5Cphi%5Ek%281%20&plus;%20%5Cdfrac%7B2%7D%7B1&plus;%5Csqrt5%7D%29%20-%20%5Cphi%27%5Ek%281%20&plus;%20%5Cdfrac%7B2%7D%7B1-%5Csqrt5%7D%29%20%7D%7B%5Csqrt5%7D%20%3D%20%5Cdfrac%7B%5Cphi%5Ek%28%5Cdfrac%7B3%20&plus;%20%5Csqrt5%7D%7B1&plus;%5Csqrt5%7D%29%20-%20%5Cphi%27%5Ek%28%5Cdfrac%7B3-%5Csqrt5%7D%7B1-%5Csqrt5%7D%29%20%7D%7B%5Csqrt5%7D%20%3D%20%5Cdfrac%7B%5Cphi%5Ek%28%5Cdfrac%7B3%20&plus;%20%5Csqrt5%7D%7B1&plus;%5Csqrt5%7D%29%28%5Cdfrac%7B1%20-%20%5Csqrt5%7D%7B1-%5Csqrt5%7D%29%20-%20%5Cphi%27%5Ek%28%5Cdfrac%7B3-%5Csqrt5%7D%7B1-%5Csqrt5%7D%29%28%5Cdfrac%7B1%20&plus;%20%5Csqrt5%7D%7B1&plus;%5Csqrt5%7D%29%20%7D%7B%5Csqrt5%7D%20%3D%20%5Cdfrac%7B%5Cphi%5Ek%28%5Cdfrac%7B1%20&plus;%20%5Csqrt5%7D%7B2%7D%29%20-%20%5Cphi%27%5Ek%28%5Cdfrac%7B1-%5Csqrt5%7D%7B2%7D%29%20%7D%7B%5Csqrt5%7D%5C%5C%20%3D%20F_%7Bk&plus;1%7D)  
+Hence true for k+1  
+So by induction this equation is true.
+### `Exercise 3.2-8`
+***
+Show that klnk = Θ(n) implies k = Θ(n/ln n).
 ### Answer.
+Given  
+    
+    klnk = Θ(n)
+    c1n <= klnk <= c2n ..(1)
+Taking c1n <= klnk and taking log both sides  
+
+    lgc1 + lgn <= lgk + lglnk
+    lgn <= O(lgk)
+    lgn <= c3lgk
+Now dividing n 
+    
+    n/lgn >= n/c2lgk
+    n/lgn >= k/c2c3 (from equation 1)
+    k <= O(n/lgn)  ...(2)
+Now taking klnk <= c2n and taking log both sides  as before  
+    
+    lgn >= Ω(lgk)
+    lgn >= c3lgk  
+Now dividing n  
+    
+    n/lgn <= n/c3lgk  
+    n/lgn <= k/c2c3 (from equation 1)
+    k >= Ω(n/lgn) ...(3)
+Using equation 2 & 3  
+Hence proved **k = Θ(n/ln n)**.
+    
+    
 
 
 
