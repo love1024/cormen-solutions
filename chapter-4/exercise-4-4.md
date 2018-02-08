@@ -56,5 +56,48 @@ Now using substitution method to validate it assume that
 Now putting it into equation  
 ![equation](http://latex.codecogs.com/gif.latex?%5Chspace%7B-1.5cm%7DT%28n%29%20%5Cle%202%28c2%5E%7Bn-1%7D-1%29%20&plus;%201%5C%5C%20%3D%20c2%5En%20-%202%20&plus;%201%5C%5C%20%3D%20c2%5En%20-%201)  
 Hence proved.  
+### `Exercise 4.4-5`
+***
+Use a recursion tree to determine a good asymptotic upper bound on the recurrence
+T(n) = T(n-1) + T(n/2). Use the substitution method to verify your answer.
+### Answer.
+Not yet done
+### `Exercise 4.4-6`
+***
+Argue that the solution to the recurrence T(n) = T(n/3) + T(2n/3) + cn, where c
+is a constant, Ω(nlgn) by appealing to a recursion tree.
+### Answer.
+We can see that at each level when we sum all the nodes the whole result become cn 
+    
+    cn                                   = cn (First level)
+    cn/3 + 2cn/3 = 3cn/3                 = cn (second level) 
+    cn/9 + 2cn/9 + 2cn/9 + 4cn/9 = 9cn/9 = cn (third level)
+Also tree will go to the max level of lg_3n and at each level cn work is happening so at least nlgn time complexity is there
+
+    T(n) = Ω(nlgn)
+
+Hence proved
+
+### `Exercise 4.4-7`
+***
+Draw the recursion tree for T(n) = 4T(n/2) + cn, where c is a constant, and
+provide a tight asymptotic bound on its solution. Verify your bound by the substitution
+method.
+### Answer.
+We can see from the recursion tree that equation will become  
+![equation](http://latex.codecogs.com/gif.latex?%5Chspace%7B-1.5cm%7DT%28n%29%3D%20cn%20%5Ccdot%20%5Csum_%7Bi%20%3D%200%7D%5E%7B%5Clg%20n%7D%202%5Ei%20%5C%5C%20%3D%20cn%20%5Cfrac%20%7B2%5E%7B%5Clg%20n%20&plus;%201%7D%20-%201%7D%20%7B2%20-%201%7D%20%5C%5C%20%3D%20cn%20%282%5Ccdot2%5E%7B%5Clg%20n%7D%20-%201%29%20%5C%5C%20%3D%20cn%20%28%202n%20-%201%29%20%5C%5C%20%3D%202cn%5E2%20-%202cn%20%3D%20O%28n%5E2%29)  
+Verifying by substituition method assume that
+    
+    T(n) <= cn^2 - dn
+    
+Now putting it into equation  
+![equation](http://latex.codecogs.com/gif.latex?%5Chspace%7B-1.5cm%7DT%28n%29%20%3C%3D%204%28c%5Ccdot%20n%5E2/4%20-%20dn%29&plus;%20cn%5C%5C%20%3D%20cn%5E2%20&plus;%20cn%20%5C%5C%20%3D%20cn%5E2%20-%204dn%20&plus;%20cn%5C%5C%20%3D%20cn%5E2%20-%20n%284d%20-c%29%5C%5C%20%3C%3D%20cn%5E2%20-%20nd%27) 
+Hence proved.
+### `Exercise 4.4-8`
+***
+### Answer.
+
+
+
 
 
