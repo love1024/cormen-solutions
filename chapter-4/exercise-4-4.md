@@ -95,7 +95,25 @@ Now putting it into equation
 Hence proved.
 ### `Exercise 4.4-8`
 ***
+Use a recursion tree to give an asymptotically tight solution to the recurrence
+T(n) = T(n-a) + T(a) + cn, where a >= 1 and c > 0 are constants.
 ### Answer.
+We can see from the recursion that the equation will become  
+![equation](http://latex.codecogs.com/gif.latex?%5Chspace%7B-0.3cm%7D%5Csum_%7Bi%3D0%7D%5E%7Bn/a%20-%201%7D%20c%28n-ia%29%20&plus;%20T%28a%29%5C%5C%20%3D%5Csum_%7Bi%3D0%7D%5E%7Bn/a%20-%201%7Dcn%20-%20%5Csum_%7Bi%3D0%7D%5E%7Bn/a%20-%201%7Dica%20&plus;%20%5Csum_%7Bi%3D0%7D%5E%7Bn/a%20-%201%7DT%28a%29%5C%5C%20%3Dcn.n/a%20-%20ca%28n/a%20.%20%28n/a%20-1%29%29%29/2%20&plus;%20T%28a%29.n/a%5C%5C%20%3D%20cn%5E2/a%20-%20c.%28n%5E2/a%20-%20n%29/2%20&plus;%20T%28a%29.n/a%5C%5C%20%3D%20cn%5E2/a%20&plus;%20%28c%20&plus;%20T%28a%29/a%29.n%5C%5C%20%3D%20%5Ctheta%20%28n%5E2%29)  
+### `Exercise 4.4-9`
+***
+Use a recursion tree to give an asymptotically tight solution to the recurrence
+T(n) = T(nα) + T((1 - α)n) + cn, where α is a constant in the range 0 < α < 1
+and c > 0 is also a constant.
+### Answer.
+Since the sum of both childs
+
+    nα + (1-α)n
+    nα + n - αn
+    n
+Hence the solution will be nlgn
+
+
 
 
 
